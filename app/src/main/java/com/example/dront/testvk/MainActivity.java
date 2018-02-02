@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
             @Override
             public void onResult(VKAccessToken res) {
-                Toast.makeText(getApplication(), res.toString(), Toast.LENGTH_LONG).show();
                 final VKRequest request = VKApi.users().get();
                 VKRequest request2 = new VKRequest("friends.get", VKParameters.from(VKApiConst.FIELDS, "sex,bdate,city,photo"));
                 request2.executeWithListener(new VKRequest.VKRequestListener() {
